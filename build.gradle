@@ -1,7 +1,14 @@
+plugins {
+ 	id 'java'
+ 	id 'io.snyk.gradle.plugin.snykplugin' version "0.4"
+}
+
 group 'com.srcclr'
 version '1.0-SNAPSHOT'
 
-apply plugin: 'java'
+
+//apply plugin: 'java'
+//apply plugin: 'io.snyk.gradle.plugin.snykplugin' version "0.4"
 
 sourceCompatibility = 1.6
 
@@ -9,11 +16,13 @@ repositories {
     mavenCentral()
 }
 
-compileJava {
-    options.fork = true
-}
+//compileJava {
+//    options.fork = true
+//}
 
 dependencies {
+	compile 'com.google.guava:guava:27.0.1-jre'
+	compile 'org.zeroturnaround:zt-zip:1.12'
     testImplementation group: 'junit', name: 'junit', version: '4.11'
     implementation group: 'org.mindrot', name: 'jbcrypt', version: '0.3m'
     implementation group: 'org.springframework', name: 'spring-web', version: '3.1.1.RELEASE'
@@ -24,6 +33,13 @@ dependencies {
     implementation group: 'org.apache.kafka', name: 'kafka_2.11', version: '0.9.0.1'
     implementation group: 'net.bull.javamelody', name: 'javamelody-core', version: '1.59.0'
     implementation group: 'com.orientechnologies', name: 'orientdb-server', version: '2.1.9'
+}
+
+snyk {
+	severity = 'low'
+	api = '9f06a871-7567-419a-9d79-c1dc50be1f57'
+	autoDownload = true //default = true
+	autoUpdate = true //default = false
 }
 
 defaultTasks 'build'

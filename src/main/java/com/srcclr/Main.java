@@ -11,6 +11,7 @@ public class Main {
 
   public static void main(String[] args) {
     String candidate = args[0];
+    org.apache.xml.security.Init.init();    
     String hashed = BCrypt.hashpw(candidate, BCrypt.gensalt(12));
 
     BCrypt.checkpw(candidate, hashed);
