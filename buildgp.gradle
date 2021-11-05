@@ -37,7 +37,7 @@ dependencies {
 
 snyk {
 	severity = 'low'
-	api = '9f06a871-7567-419a-9d79-c1dc50be1f57'
+	api = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 	autoDownload = true //default = true
 	autoUpdate = true //default = false
 }

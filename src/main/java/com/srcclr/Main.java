@@ -21,11 +21,11 @@ public class Main {
 
   private static void filterXMLSignature() {
     byte[] bytes = new byte[256];
-
     try {
-      new MultipartStream(new ByteArrayInputStream(bytes), bytes);
-    } catch (IOException ignored) {
-    }
+		new MultipartStream(new ByteArrayInputStream(bytes), bytes);
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
 
     new XMLSignatureInput(bytes).addNodeFilter(null);
   }
